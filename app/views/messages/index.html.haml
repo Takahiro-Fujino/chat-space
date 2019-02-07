@@ -1,23 +1,6 @@
 %div.wrapper
-  .side-bar
-    .side-bar__header
-      .h3.side-bar__header__name
-        user
-      %ul.side-bar__header__lists
-        %li.side-bar__header__lists__list
-          %a(href="/groups/new" id = "group_new")
-            %i.fa.fa-edit.fa-white
-        %li.side-bar__header__lists__list
-          %a(href="/users/:id/edit" id = "user_id_edit")
-            %i.fa.fa-cog.fa-white
 
-    .side-bar__groups
-      .side-bar__groups__group
-        %a(href="/groups/message")
-          .side-bar__groups__group__name
-            group name
-          .side-bar__groups__group__message
-            message
+  =render "devise/shared/side_bar"
 
   .chat
     .chat__header
