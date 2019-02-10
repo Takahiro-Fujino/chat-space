@@ -41,7 +41,6 @@ GEM
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     arel (7.1.4)
-    bcrypt (3.1.12)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.2)
@@ -234,8 +233,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
-    warden (1.2.8)
-      rack (>= 2.0.6)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -255,7 +252,6 @@ DEPENDENCIES
   capybara
   carrierwave
   coffee-rails (~> 4.2)
-  devise
   erb2haml
   factory_girl_rails (~> 4.0)
   faker
