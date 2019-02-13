@@ -29,15 +29,14 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.messages').append(html);
-      $('.form__message').val('');
-      $('.hidden').val('');
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'slow');
-    })
     .always(function(){
       $('input').prop("disabled", false);
+    })
+    .done(function(data){
+      var html = buildHTML(data);
+      $('.messages').append(html)
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'slow');
+      $('.new_message')[0].reset();
     })
     .fail(function(){
       alert('メッセージを入力してください。');
