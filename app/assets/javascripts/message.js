@@ -5,7 +5,8 @@ $(function(){
     else
        var image = ``
 
-    var html = `<div class="message" >
+  var html =
+    `<div class="message" >
       <div class="upper-message" >
         <div class="upper-message__user-name">${message.name}</div>
         <div class="upper-message__date">${message.strftime}</div>
@@ -15,7 +16,7 @@ $(function(){
          ${image}
       </div>
     </div>`
-  return html;
+    return html;
   }
   $('.new_message').on('submit', function(e){
     e.preventDefault();
@@ -42,4 +43,36 @@ $(function(){
       alert('メッセージを入力してください。');
     })
   })
+  $(function(){
+    $(function(){
+      if(location.href.match(/\/groups\/\d+\/messages/)){
+          setInterval(update,5000);
+      }
+    });
+    function update(){
+      if($('')[0]){
+        var message_id = $('message:last').data('message');
+      }
+      else{
+      }
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        data:{
+          message: {id: message_id}
+        },
+          dataType:'json'
+      })
+      .done(function(data){
+        data.forEach(function(data){
+          var html = buildHTML(data)
+          $('messages').append(html);
+          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'slow');
+        })
+      })
+      .fail(function(data){
+        aleart('自動更新に失敗しました')
+      })
+    }
+  });
 });
