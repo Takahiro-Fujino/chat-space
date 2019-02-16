@@ -11,7 +11,7 @@
           Member :
           .chat__header__left-header__members__member
             - @users.each do |user|
-              =user.name
+              = user.name
       .chat__header__right-header
         = link_to "Edit", edit_group_path(@group),class: "Edit"
 
